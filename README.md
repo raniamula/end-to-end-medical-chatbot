@@ -7,10 +7,10 @@ A Retrieval-Augmented Generation (RAG) based medical chatbot built using the Med
 - Embeddings generated using SentenceTransformers.
 - FAISS index for fast similarity search.
 - Response generation using FLAN-T5 model.
-- Flask API with a single endpoint: /api/ask.
+- Flask API with a single endpoint: `/api/ask`.
 
 ## Project Structure
-end-to-end-medical-chatbot/
+medical-chat-bot/
 ├─ data/
 │ └─ medquad.csv
 ├─ models/
@@ -27,7 +27,6 @@ end-to-end-medical-chatbot/
 python -m venv venv
 source venv/bin/activate # Linux/Mac
 venv\Scripts\Activate.ps1 # Windows
-
 pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -38,11 +37,8 @@ kaggle datasets download pythonafroz/medquad-medical-question-answer-for-ai-rese
 
 csharp
 
-
 Place the file here:
 data/medquad.csv
-
-
 
 ## Build FAISS Index
 python src/build_index.py
@@ -57,13 +53,15 @@ POST /api/ask
 Content-Type: application/json
 Body: {"question": "your medical question here"}
 
+
 ## Example cURL Request
 curl -X POST http://localhost:8000/api/ask
 -H "Content-Type: application/json"
 -d '{"question":"What are the symptoms of diabetes?"}'
 
 
-## Example JSON Response
+
+## Example Response
 {
 "answer": "generated answer text",
 "confidence": 0.82,
@@ -72,7 +70,6 @@ curl -X POST http://localhost:8000/api/ask
 {"score": 0.74, "question": "...", "answer": "..."}
 ]
 }
-
 
 ## Requirements
 flask
@@ -85,9 +82,8 @@ torch
 accelerate
 python-dotenv
 
+csharp
+
 
 ## Disclaimer
-This project is for research and educational use only and does not provide medical advice.
-
-yaml
-కాపీ కోడ్
+This project is for research and educational use only.
