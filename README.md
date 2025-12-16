@@ -1,89 +1,71 @@
-# end-to-end-medical-chatbot
+# Medical Chatbot (Streamlit)
 
-A Retrieval-Augmented Generation (RAG) based medical chatbot built using the MedQuAD dataset from Kaggle, FAISS for retrieval, and a transformer model for medical question answering.
+A simple medical question-answer chatbot built using Python, Streamlit, and a medical Q&A dataset.  
+The chatbot searches relevant medical questions from a dataset and returns the best matching answer.
 
 ## Features
-- Uses MedQuAD medical question–answer dataset.
-- Embeddings generated using SentenceTransformers.
-- FAISS index for fast similarity search.
-- Response generation using FLAN-T5 model.
-- Flask API with a single endpoint: `/api/ask`.
+- Streamlit-based web interface
+- Medical question-answer retrieval from CSV dataset
+- Simple and lightweight implementation
+- Easy to run locally using VS Code
 
 ## Project Structure
-medical-chat-bot/
+medical-chatbot/
+├─ chat_model/
+│ ├─ init.py
+│ └─ rules.py
 ├─ data/
-│ └─ medquad.csv
-├─ models/
-├─ src/
-│ ├─ build_index.py
-│ ├─ retriever.py
-│ ├─ generator.py
-│ └─ app.py
+│ └─ data.csv
+├─ app.py
 ├─ requirements.txt
 └─ README.md
 
-
 ## Installation
+
+### 1. Clone the repository
+git clone https://github.com/USERNAME/medical-chatbot.git
+cd medical-chatbot
+
+### 2. Create virtual environment
 python -m venv venv
-source venv/bin/activate # Linux/Mac
-venv\Scripts\Activate.ps1 # Windows
-pip install --upgrade pip
+
+
+### 3. Activate virtual environment
+**Windows**
+venv\Scripts\Activate.ps1
+
+
+
+### 4. Install dependencies
 pip install -r requirements.txt
 
 
-## Download Dataset
-pip install kaggle
-kaggle datasets download pythonafroz/medquad-medical-question-answer-for-ai-research -p data --unzip
-
-csharp
-
-Place the file here:
-data/medquad.csv
-
-## Build FAISS Index
-python src/build_index.py
-
-
-## Run API Server
-python src/app.py
-
-
-## API Endpoint
-POST /api/ask
-Content-Type: application/json
-Body: {"question": "your medical question here"}
-
-
-## Example cURL Request
-curl -X POST http://localhost:8000/api/ask
--H "Content-Type: application/json"
--d '{"question":"What are the symptoms of diabetes?"}'
+## Run the Application
+streamlit run app.py
 
 
 
-## Example Response
-{
-"answer": "generated answer text",
-"confidence": 0.82,
-"sources": [
-{"score": 0.82, "question": "...", "answer": "..."},
-{"score": 0.74, "question": "...", "answer": "..."}
-]
-}
+The app will open in your browser at:
+http://localhost:8501
 
-## Requirements
-flask
-pandas
-tqdm
-sentence-transformers
-faiss-cpu
-transformers
-torch
-accelerate
-python-dotenv
 
-csharp
+## Dataset
+The dataset should be placed inside the `data/` folder as `data.csv`.
 
+Required columns:
+- `question`
+- `answer`
 
 ## Disclaimer
-This project is for research and educational use only.
+This project is for educational purposes only and does not provide medical advice.
+ Replace USERNAME with your actual GitHub username.
+
+FINAL CHECK (IMPORTANT)
+Before pushing:
+
+venv/ is ignored
+
+README.md exists
+
+App runs with streamlit run app.py
+
