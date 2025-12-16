@@ -23,7 +23,8 @@ medical-chatbot/
 ## Installation
 
 ### 1. Clone the repository
-git clone https://github.com/USERNAME/medical-chatbot.git
+git clone https://github.com/raniamula/end-to-end-medical-chatbot
+
 cd medical-chatbot
 
 ### 2. Create virtual environment
